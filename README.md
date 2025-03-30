@@ -24,7 +24,6 @@ DAGGER_NO_NAG=1 dagger call -i publish --source=. --image-tag=<image name> --pro
 
 ### Build and export image to local file system
 ```sh
-```
 DAGGER_NO_NAG=1 dagger call build --source=. export --path=./img/a.tgz
 docker load -i ./img/a.tgz
 ```
