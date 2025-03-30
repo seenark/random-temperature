@@ -1,0 +1,8 @@
+{
+  "name": "temperature-hono",
+  "engineVersion": "v0.16.3",
+  "sdk": {
+    "source": "typescript"
+  },
+  "source": ".dagger"
+}

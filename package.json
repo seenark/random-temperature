@@ -1,0 +1,30 @@
+{
+  "name": "temperature-hono",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "clean": "rm -rf dist",
+    "build": "bun run clean && bun run build-config/esm.ts",
+    "build:cjs": "bun run clean && bun run build-config/cjs.ts",
+    "build:linux": "bun build ./src/index.ts --compile --target=bun-linux-x64 --outfile=app ",
+    "build:mac": "bun build ./src/index.ts --compile --target=bun-darwin-arm64 --outfile=app",
+    "build:bytecode": "bun build ./src/index.ts --compile --outfile=app-b --bytecode",
+    "dagger:publish": "DAGGER_NO_NAG=1 dagger call -i publish --source=. --image-tag=hadesgod/temperature:latest --progress=plain"
+  },
+  "dependencies": {
+    "@hono/effect-validator": "^1.2.0",
+    "@scalar/hono-api-reference": "^0.7.4",
+    "effect": "^3.14.2",
+    "hono": "^4.7.5",
+    "hono-openapi": "^0.4.6",
+    "keyv": "^5.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@types/bun": "latest",
+    "eslint": "^9.23.0",
+    "eslint-plugin-oxlint": "^0.16.3",
+    "eslint-plugin-perfectionist": "^4.10.1",
+    "typescript": "^5.8.2"
+  }
+}
